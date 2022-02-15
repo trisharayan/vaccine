@@ -1,0 +1,20 @@
+.container {
+    padding-top: 40px;
+}
+
+.logo {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 150px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .logo {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        width: 120px;
+    }
+}

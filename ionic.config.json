@@ -1,0 +1,7 @@
+{
+  "name": "vaccineRecordSystem",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

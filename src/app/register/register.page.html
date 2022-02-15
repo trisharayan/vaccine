@@ -1,0 +1,199 @@
+<ion-content>
+    <a href="./about">
+        <img class="logo" src="../../assets/logo.PNG">
+    </a>
+    <form>
+        <div class="user-ragistration">
+            <div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/> -->
+                        <h3>Already a member?</h3>
+                        <p> login to access your account</p>
+                        <input (click)="goToPage('login')" name="" value="Login" /><br />
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" #role data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Parent</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Doctor</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Apply as a Parent</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Child/User’s Name"
+                                                name="user_name" [(ngModel)]="user_name" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Parent/Guardian Name"
+                                                name="user_name" [(ngModel)]="parent_name" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            Date of birth
+                                            <input type="date" class="form-control" placeholder="Date of birth"
+                                                name="dob" [(ngModel)]="dob" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Address" name="address"
+                                                [(ngModel)]="address" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="state" [(ngModel)]="state"
+                                                placeholder="State" value="" />
+                                        </div>
+
+
+
+
+                                        <!-- <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="male" [(ngModel)]="gender"
+                                                        checked>
+                                                    <span> Male </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" [(ngModel)]="gender"
+                                                        value="female">
+                                                    <span>Female </span>
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email"
+                                                name="email" [(ngModel)]="email" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password"
+                                                name="pass" [(ngModel)]="pass" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <span style="visibility: hidden;"> 12 </span>
+                                            <input type="text" class="form-control" placeholder="National Id"
+                                                name="national_id" [(ngModel)]="national_id" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="city" class="form-control" [(ngModel)]="city"
+                                                placeholder="City" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <select class="form-control" name="country" [(ngModel)]="country">
+                                                <option class="hidden" selected disabled>Please select your country
+                                                </option>
+                                                <option>India</option>
+                                                <option>Nepal</option>
+                                                <option>Mexico</option>
+                                                <option>Costa Rica</option>
+                                                <option>USA</option>
+
+                                            </select>
+                                        </div>
+                                        <input type="button" class="btnRegister" (click)="register()"
+                                            value="Register" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3 class="register-heading">Apply as a Doctor</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Doctor/User’s Name"
+                                                name="name" [(ngModel)]="user_name" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Hospital/Clinic Name"
+                                                name="hospitalName" [(ngModel)]="hospitalName" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Doctors License Id"
+                                                name="license_id" [(ngModel)]="license_id" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Address" name="address"
+                                                [(ngModel)]="address" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="state" [(ngModel)]="state"
+                                                placeholder="State" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" value="male" [(ngModel)]="gender"
+                                                        checked>
+                                                    <span> Male </span>
+                                                </label>
+                                                <label class="radio inline">
+                                                    <input type="radio" name="gender" [(ngModel)]="gender"
+                                                        value="female">
+                                                    <span>Female </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email "
+                                                name="email" [(ngModel)]="email" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password"
+                                                name="pass" [(ngModel)]="pass" value="" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Business National Id "
+                                                name="national_id" [(ngModel)]="bussiness_national_id" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="city" class="form-control" [(ngModel)]="city"
+                                                placeholder="City" value="" />
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <select class="form-control" name="country" [(ngModel)]="country">
+                                                <option class="hidden" selected disabled>Please select your country
+                                                </option>
+                                                <option>India</option>
+                                                <option>Nepal</option>
+                                                <option>Mexico</option>
+                                                <option>Costa Rica</option>
+                                                <option>USA</option>
+
+                                            </select>
+                                        </div>
+                                        <input type="button" class="btnRegister" (click)="register()"
+                                            value="Register" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</ion-content>

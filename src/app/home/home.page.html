@@ -1,0 +1,198 @@
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark  lighten-1" [containerInside]="false">
+
+  <mdb-navbar-brand><a class="navbar-brand" href="#">
+
+      <img class="logo" src="assets/logo.PNG">
+    </a></mdb-navbar-brand>
+
+  <links>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link waves-light" [routerLink]='["/home"]' mdbWavesEffect>Home </a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link waves-light" [routerLink]='["/about"]' mdbWavesEffect>About</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link waves-light" [routerLink]='["/home"]' mdbWavesEffect>Help</a>
+      </li>
+
+
+    </ul>
+
+
+  </links>
+
+</mdb-navbar>
+
+
+
+<!-- 
+https://mdbootstrap.com/img/Photos/Others/architecture.jpg -->
+
+<div class="wcontainer">
+  <div class="welcome">
+    Hi {{name}},
+  </div>
+
+  <div class="DOB">
+    <div>DOB : {{dob}}</div>
+    <div>Parent/Guardian : {{name}}</div>
+
+  </div>
+</div>
+
+
+<div class="table-container">
+  <div class="table1-title"> Immunization Recorded To Date </div>
+  <table class="table1">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Vaccination</th>
+        <th>Hospital</th>
+        <th>Comments</th>
+        <th width="80px">Update</th>
+        <th width="80px">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td data-column="Date">{{record[4]}}</td>
+        <td data-column="Vaccine Name">{{record[2]}}</td>
+        <td data-column="Hospital Name">{{record[3]}}</td>
+        <td data-column="Comments">{{record[5]}}</td>
+        <td width="80px"><button (click)="UpdateRecord(record)">Update</button></td>
+        <td width="80px"><button (click)="DeleteRecord(record)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+</div>
+
+
+<div class="table-container">
+  <div class="table1-title"> Recommeneded Vaccinations Based on your Age </div>
+  <table class="table2">
+    <thead>
+      <tr>
+        <th>Vaccination</th>
+        <th>Recommeneded Age</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let record of records">
+        <td data-column="Vaccination">{{record[4]}}</td>
+        <td data-column="Recommeneded Age">{{record[2]}}</td>
+        <td data-column="Purpose">{{record[3]}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+</div>
+
+
+<div class="container" *ngIf="update">
+  <div class="row">
+    <section class="col-xs-12">
+      <form>
+
+        <div class="form-group">
+          <label for="selectSite">Select Vaccine</label>
+          <select id="selectSite" class="form-control" name="vaccine" [(ngModel)]="vaccine">
+            <option>Polio</option>
+            <option>Rota</option>
+            <option>TDAP</option>
+            <option>Rubella</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="inputName">Hospital Name</label>
+          <input class="form-control" type="text" id="inputName" placeholder="Name" name="hospital"
+            [(ngModel)]="hospital">
+        </div>
+
+        <div class="form-group">
+          <label for="inputName">Date</label>
+          <input class="form-control" type="date" id="inputDate" placeholder="Date" name="date" [(ngModel)]="date">
+        </div>
+
+        <div class="checkbox">
+          <label>
+            <input id="inputAddList" type="checkbox" (change)="changeCheckU($event)">
+            i confirm that the information i have provided is correct</label>
+        </div>
+        <div class="form-group">
+          <label for="inputComments">Comments</label>
+          <textarea id="inputComments" class="form-control" name="comments" [(ngModel)]="comments"></textarea>
+        </div>
+
+        <input type="button" [disabled]="disabledAgreementU" (click)="Update()" value="Update"
+          class="btn btn-default pull-right">
+      </form>
+
+
+    </section>
+  </div>
+</div>
+
+
+
+
+  <div class="container" *ngIf="!update">
+    <div class="row">
+      <section class="col-xs-12">
+        <form>
+
+          <div class="form-group">
+            <label for="selectSite">Select Vaccine</label>
+            <select id="selectSite" class="form-control" name="vaccine" [(ngModel)]="vaccine">
+              <option>Polio</option>
+              <option>Rota</option>
+              <option>TDAP</option>
+              <option>Rubella</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="inputName">Hospital Name</label>
+            <input class="form-control" type="text" id="inputName" placeholder="Name" name="hospital"
+              [(ngModel)]="hospital">
+          </div>
+
+          <div class="form-group">
+            <label for="inputName">Date</label>
+            <input class="form-control" type="date" id="inputDate" placeholder="Date" name="date" [(ngModel)]="date">
+          </div>
+
+
+
+          <div class="checkbox">
+            <label>
+              <input id="inputAddList" type="checkbox" (change)="changeCheck($event)">
+              i confirm that the information i have provided is correct</label>
+          </div>
+          <div class="form-group">
+            <label for="inputComments">Comments</label>
+            <textarea id="inputComments" class="form-control" name="comments" [(ngModel)]="comments"></textarea>
+          </div>
+
+          <input type="button" [disabled]="disabledAgreement" (click)="submit()" value="Submit"
+            class="btn btn-default pull-right">
+        </form>
+
+
+      </section>
+    </div>
+  </div>
